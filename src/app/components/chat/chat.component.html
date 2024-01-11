@@ -1,0 +1,33 @@
+<div
+  *ngIf="isDraggingEnabled"
+  (document:mousemove)="dragWidget($event)"
+  (document:mouseup)="toggleDragging(false)"
+></div>
+
+<div 
+  class="chatWrapper"
+  (mousedown)="toggleDragging(true)"
+  [ngStyle]="style"
+  [ngClass]="{ lightTheme: isLightThemeEnabled }"
+  mwlResizable
+  [validateResize]="validate"
+  [resizeEdges]="{ right: true, left: true, bottom: true, top: true }"
+  [enableGhostResize]="true"
+  (resizeStart)="toggleDragging(false)"
+  (resizeEnd)="onResizeEnd($event)"
+>
+  <div class="chatHeader">
+    <header>
+      <h3>Chat</h3>
+    </header>
+    <section class="chatBody" [ngStyle]="bodyStyle">
+      <div *ngFor="let message of messages" [ngClass]="message.class">
+        {{ message.content }}
+      </div>
+    </section>
+    <footer class="chatFooter">
+      <input class="chatFooter__input" (keypress)="onKeyPress($event)" [(ngModel)]="inputValue" />
+      <button class="chatFooter__button" (click)="onClick()">Send</button>
+    </footer>
+  </div>
+</div>

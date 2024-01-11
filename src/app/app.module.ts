@@ -268,6 +268,7 @@ import { VpcsConfigurationService } from './services/vpcs-configuration.service'
 import { VpcsService } from './services/vpcs.service';
 import { NonNegativeValidator } from './validators/non-negative-validator';
 import { RotationValidator } from './validators/rotation-validator';
+import { ChatComponent } from './components/chat/chat.component';
 
 @NgModule({
   declarations: [
@@ -453,7 +454,8 @@ import { RotationValidator } from './validators/rotation-validator';
     InformationDialogComponent,
     TemplateNameDialogComponent,
     ConfigureCustomAdaptersDialogComponent,
-    EditNetworkConfigurationDialogComponent
+    EditNetworkConfigurationDialogComponent,
+    ChatComponent
   ],
   imports: [
     BrowserModule,
